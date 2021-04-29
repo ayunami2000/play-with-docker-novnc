@@ -11,6 +11,6 @@ cd ..
 git clone https://github.com/ayunami2000/noVNC
 ./noVNC/utils/launch.sh --listen 80 &
 qemu-system-x86_64 -vnc :0 -hda ./hda.img -m 3072 \
--net nic,model=virtio -net user -cdrom ./mediafire-dl/BartPE.iso \
+-net nic -net user -cdrom ./mediafire-dl/BartPE.iso \
 -rtc base=localtime,clock=host -smp cores=4,threads=4 \
 -usbdevice tablet -vga vmware
