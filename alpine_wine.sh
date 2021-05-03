@@ -7,5 +7,4 @@ git clone https://github.com/ayunami2000/noVNC
 Xvfb +extension GLX &
 export DISPLAY=:0
 wine explorer /desktop=shell &
-xterm &
 x11vnc -noshm -geometry 900x720 -shared -forever &
