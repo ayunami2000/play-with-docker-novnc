@@ -1,6 +1,4 @@
 #!/bin/bash
-echo DONT WORK
-sleep 10
 add-apt-repository ppa:bumblebee/stable
 apt update
 apt install -y xvfb x11vnc build-essential libx11-dev libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev libgl1-mesa-dev libgl1-mesa-dri
