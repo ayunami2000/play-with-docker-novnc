@@ -1,4 +1,6 @@
 #!/bin/bash
+echo DONT WORK
+sleep 10
 apt update
 apt install -y x11vnc wine python-minimal
 git clone https://github.com/Juvenal-Yescas/mediafire-dl
