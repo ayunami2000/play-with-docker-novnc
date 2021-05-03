@@ -2,6 +2,7 @@
 add-apt-repository ppa:bumblebee/stable -y
 apt update
 apt install -y xvfb x11vnc build-essential libx11-dev libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev libgl1-mesa-dev libgl1-mesa-dri
+echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
 apt install -y wine python-minimal
 apt install -y virtualgl
 git clone https://github.com/Juvenal-Yescas/mediafire-dl
