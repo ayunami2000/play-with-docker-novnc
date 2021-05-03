@@ -4,6 +4,8 @@ apt-key add winehq.key
 apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ xenial main' -y
 #add-apt-repository ppa:bumblebee/stable -y
 apt update
+wget -O virtualgl.deb https://sourceforge.net/projects/virtualgl/files/2.6.5/virtualgl_2.6.5_amd64.deb/download
+apt install -y virtualgl.deb
 apt install -y xvfb x11vnc build-essential libx11-dev libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev libgl1-mesa-dev libgl1-mesa-dri python-minimal# virtualgl
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
 apt install -y --install-recommends winehq-stable
