@@ -1,6 +1,6 @@
 #!/bin/bash
 apt update
-apt install -y qemu qemu-utils qemu-system-x86
+apt install -y qemu qemu-utils qemu-system-x86 python-minimal
 qemu-img create -f raw hda.img 5G
 git clone https://github.com/Juvenal-Yescas/mediafire-dl
 cd mediafire-dl
