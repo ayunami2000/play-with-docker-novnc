@@ -1,10 +1,12 @@
 #!/bin/bash
+wget -nc https://dl.winehq.org/wine-builds/winehq.key
+apt-key add winehq.key
+apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ xenial main' -y
 add-apt-repository ppa:bumblebee/stable -y
 apt update
-apt install -y xvfb x11vnc build-essential libx11-dev libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev libgl1-mesa-dev libgl1-mesa-dri
+apt install -y xvfb x11vnc build-essential libx11-dev libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev libgl1-mesa-dev libgl1-mesa-dri python-minimal virtualgl
 echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
-apt install -y wine python-minimal
-apt install -y virtualgl
+apt install -y --install-recommends winehq-stable
 git clone https://github.com/Juvenal-Yescas/mediafire-dl
 cd mediafire-dl
 pip3 install -r requirements.txt
