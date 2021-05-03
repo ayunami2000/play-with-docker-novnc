@@ -1,7 +1,7 @@
 #!/bin/bash
 apt update
 wget -O virtualgl.deb https://sourceforge.net/projects/virtualgl/files/2.6.5/virtualgl_2.6.5_amd64.deb/download
-apt install -y virtualgl.deb
+apt install -y ./virtualgl.deb
 apt install -y xvfb x11vnc build-essential libx11-dev libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev libgl1-mesa-dev libgl1-mesa-dri python-minimal
 apt install -y fluxbox
 git clone https://github.com/ayunami2000/noVNC
