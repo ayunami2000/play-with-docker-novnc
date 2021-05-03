@@ -14,7 +14,7 @@ unzip -d sanicball sanicball-v0.8.2-win.zip
 cd ..
 git clone https://github.com/ayunami2000/noVNC
 ./noVNC/utils/launch.sh --listen 80 &
-Xvfb +extension GLX &
+Xvfb -screen 0 900x720x24+32 +extension GLX &
 export DISPLAY=:0
 wine64 ./mediafire-dl/sanicball/Sanicball_v0.8.2.exe &
 x11vnc -noshm -geometry 900x720 -shared -forever &
