@@ -10,4 +10,4 @@ git clone https://github.com/mindstorm38/portablemc
 Xvfb -screen 0 900x720x24+32 +extension GLX &
 export DISPLAY=:0
 x11vnc -noshm -geometry 900x720 -shared -forever &
-yes y | python3 ./portablemc/portablemc.py start -u katacoda
+yes y | python3.7 ./portablemc/portablemc.py start -u katacoda
