@@ -6,5 +6,5 @@ git clone https://github.com/ayunami2000/noVNC
 ./noVNC/utils/launch.sh --listen 80 &
 Xvfb +extension GLX &
 export DISPLAY=:0
-wine64 explorer /desktop=900x720 &
+wine64 explorer /desktop=shell,900x720 &
 x11vnc -noshm -geometry 900x720 -shared -forever &
