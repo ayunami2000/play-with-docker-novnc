@@ -1,6 +1,6 @@
 #!/bin/bash
 apt update
-apt install -y qemu qemu-system-x86
+apt install -y qemu qemu-system-x86 python-minimal
 wget -O iso.iso http://ftp.sh.cvut.cz/slax/Slax-9.x/slax-64bit-9.11.0.iso
 git clone https://github.com/ayunami2000/noVNC
 ./noVNC/utils/launch.sh --listen 80 &
