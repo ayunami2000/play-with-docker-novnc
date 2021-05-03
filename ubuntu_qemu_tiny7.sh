@@ -1,6 +1,6 @@
 #!/bin/bash
 apt update
-apt install -y qemu python2
+apt install -y qemu qemu-system-x86 python2
 qemu-img create -f raw hda.img 10G
 git clone https://github.com/Juvenal-Yescas/mediafire-dl
 cd mediafire-dl
