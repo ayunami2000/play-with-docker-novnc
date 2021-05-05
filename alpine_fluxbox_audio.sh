@@ -9,13 +9,9 @@ export DISPLAY=:0
 fluxbox &
 x11vnc -noshm -geometry 900x720 -shared -forever &
 
-apk add pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils icecast darkice
+apk add pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils vlc
 pulseaudio &
 pacmd load-module module-null-sink sink_name=virtual_a
 pacmd load-module module-combine-sink sink_name="virtual_b" slaves="virtual_a"
-icecast -c /etc/icecast.xml -b
-cp /etc/darkice/darkice.cfg ./
-sed 's/yp.yourserver.com/localhost/g' darkice.cfg > darkice2.cfg
-sed 's/\/dev\/dsp/pulse/g' darkice2.cfg > darkice.cfg
-rm -rf darkice2.cfg
-darkice -c darkice.cfg
+sed -i 's/geteuid/getppid/' /usr/bin/vlc
+cvlc -vvv pulse://$(pactl list | grep "Monitor Source" | awk '{print $3}') --sout '#transcode{acodec=mp3,ab=128,channels=2}:standard{access=http,dst=0.0.0.0:81/a.mp3}'
