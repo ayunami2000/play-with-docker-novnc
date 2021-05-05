@@ -11,7 +11,8 @@ x11vnc -noshm -geometry 900x720 -shared -forever &
 
 apk add pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils vlc
 pulseaudio &
-pacmd load-module module-null-sink sink_name=virtual_a
-pacmd load-module module-combine-sink sink_name="virtual_b" slaves="virtual_a"
+pacmd load-module module-null-sink sink_name=bruh
+pacmd update-sink-proplist bruh device.description=moment
+#pacmd load-module module-loopback sink=bruh
 sed -i 's/geteuid/getppid/' /usr/bin/vlc
-cvlc -vvv pulse://$(pactl list | grep "Monitor Source" | awk '{print $3}') --sout '#transcode{acodec=mp3,ab=128,channels=2}:standard{access=http,dst=0.0.0.0:81/a.mp3}'
+cvlc -vvv pulse://bruh.monitor --sout '#transcode{acodec=mp3,ab=128,channels=2}:standard{access=http,dst=0.0.0.0:81/a.mp3}' &
