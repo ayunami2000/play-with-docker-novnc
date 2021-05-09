@@ -9,7 +9,7 @@ export DISPLAY=:0
 fluxbox &
 x11vnc -noshm -geometry 900x720 -shared -forever &
 
-apk add alsa-base pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils vlc
+apk add alsa-utils alsa-lib alsaconf pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils vlc ffmpeg
 alsa reload
 alsa resume
 pulseaudio &
