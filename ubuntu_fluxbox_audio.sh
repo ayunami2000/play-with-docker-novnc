@@ -13,10 +13,11 @@ x11vnc -noshm -geometry 900x720 -shared -forever &
 
 modprobe snd-dummy
 modprobe snd-aloop
-apt install -y alsa-base alsa-tools pulseaudio vlc
+apt install -y alsa-base alsa-tools pulseaudio ffmpeg
 
-sed -i 's/geteuid/getppid/' /usr/bin/vlc
-cvlc -vvv alsa://plughw:Loopback,1,0 --sout '#transcode{acodec=mp3,ab=128,channels=2}:standard{access=http,dst=0.0.0.0:81/a.mp3}' &
-cvlc -vvv alsa://plughw:Loopback,0,0 --sout '#transcode{acodec=mp3,ab=128,channels=2}:standard{access=http,dst=0.0.0.0:82/a.mp3}' &
-wget https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3
-vlc ./file_example_MP3_700KB.mp3 &
+cd ./noVNC
+mkdir audio
+cd audio
+ffmpeg -hide_banner -loglevel error -nostdin -f alsa -channels 2 -sample_rate 44100 -i hw:Loopback,1,0 -map 0 -codec:a aac -f ssegment -segment_list stream.m3u -segment_list_flags +live -segment_time 10 out%03d.ts &
+cd ..
+cd ..
