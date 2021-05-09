@@ -9,7 +9,7 @@ unzip cvmpublic.zip
 rm -rf cvmpublic.zip
 chmod +x ./collab-vm-server
 wget http://ftp.sh.cvut.cz/slax/Slax-9.x/slax-64bit-9.11.0.iso
-echo qemu-system-x86_64 -vnc :0 -soundhw hda -boot d -cdrom slax-64bit-9.11.0.iso -m 3072 -net nic,model=virtio -net user -rtc base=localtime,clock=host -smp cores=4,threads=4 -usbdevice tablet -vga vmware
+echo qemu-system-x86_64 -soundhw hda -boot d -cdrom slax-64bit-9.11.0.iso -m 1024 -net nic,model=virtio -net user -rtc base=localtime,clock=host -smp cores=4,threads=4 -usbdevice tablet -vga vmware
 echo setup the vm now. when done do ctrl+c to start public
 ./collab-vm-server 80
 ./collab-vm-server 80 public
