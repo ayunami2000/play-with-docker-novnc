@@ -11,15 +11,13 @@ export DISPLAY=:0
 fluxbox &
 x11vnc -noshm -geometry 900x720 -shared -forever &
 
-apt install -y alsa-base alsa-tools pulseaudio ffmpeg mplayer
 modprobe snd-dummy
 modprobe snd-aloop
-alsa reload
-alsa resume
-pulseaudio &
-modprobe snd-aloop pcm_substreams=1
-echo "# .asoundrc" >> /etc/asound.conf
-echo "pcm.!default { type plug slave.pcm "hw:Loopback,0,0" }" >> /etc/asound.conf
-cd ./noVNC/
-ffmpeg -f alsa -channels 2 -sample_rate 44100 -i hw:Loopback,1,0 -map 0 -codec:a aac -f ssegment -segment_list stream.m3u -segment_list_flags +live -segment_time 10 out%03d.ts &
-cd ..
+apt install -y alsa-base alsa-tools pulseaudio mplayer vlc
+wget https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3
+mplayer ./file_example_MP3_700KB.mp3 &
+
+#cd ./noVNC/
+#ffmpeg -f alsa -channels 2 -sample_rate 44100 -i hw:Loopback,1,0 -map 0 -codec:a aac -f ssegment -segment_list stream.m3u -segment_list_flags +live -segment_time 10 out%03d.ts &
+#cd ..
+cvlc -vvv alsa://plughw:1,0 --sout '#transcode{acodec=mp3,ab=128,channels=2}:standard{access=http,dst=0.0.0.0:81/a.mp3}' &
