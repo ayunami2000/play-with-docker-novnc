@@ -8,8 +8,8 @@ wget https://github.com/ayunami2000/play-with-docker-novnc/raw/main/cvmpublic.zi
 unzip cvmpublic.zip
 rm -rf cvmpublic.zip
 chmod +x ./collab-vm-server
-wget http://ftp.sh.cvut.cz/slax/Slax-9.x/slax-64bit-9.11.0.iso
-echo qemu-system-x86_64 -soundhw hda -boot d -cdrom slax-64bit-9.11.0.iso -m 2048 -net nic,model=virtio -net user -rtc base=localtime,clock=host -smp cores=4,threads=4 -usbdevice tablet -vga vmware
+echo open another terminal and wget your preferred iso: wget -O iso.iso http://ftp.sh.cvut.cz/slax/Slax-9.x/slax-64bit-9.11.0.iso
+echo qemu-system-x86_64 -soundhw hda -boot d -cdrom iso.iso -m 2048 -net nic,model=virtio -net user -rtc base=localtime,clock=host -smp cores=4,threads=4 -usbdevice tablet -vga vmware
 echo setup the vm now. when done do ctrl+c to start public
 ./collab-vm-server 80
 ./collab-vm-server 80 public
