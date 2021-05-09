@@ -9,7 +9,7 @@ export DISPLAY=:0
 fluxbox &
 x11vnc -noshm -geometry 900x720 -shared -forever &
 
-apk add alsa-utils alsa-lib alsaconf pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils vlc ffmpeg
+apk add alsa-utils alsa-lib alsaconf pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils ffmpeg
 alsa reload
 alsa resume
 pulseaudio &
@@ -19,7 +19,3 @@ echo "pcm.!default { type plug slave.pcm "hw:Loopback,0,0" }" >> /etc/asound.con
 cd ./noVNC/
 ffmpeg -f alsa -channels 2 -sample_rate 44100 -i hw:Loopback,1,0 -map 0 -codec:a aac -f ssegment -segment_list stream.m3u -segment_list_flags +live -segment_time 10 out%03d.ts &
 cd ..
-sed -i 's/geteuid/getppid/' /usr/bin/vlc
-
-wget -O bruh.mp3 https://imagesharing.com/uploads/20201125/4420f20ce9b9944e87e94fbf89b261a10cab63e5.mp3
-vlc bruh.mp3 --aout=pulse
