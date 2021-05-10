@@ -14,8 +14,8 @@ tar -xf ./mmc.tar.gz
 cd MultiMC/
 chown -R minecraft /home/mc/
 echo '#!/bin/bash' >> step2.sh
-echo 'tigervncserver -noxstartup -SecurityTypes None -geometry 1280x720 :0'
-echo 'export DISPLAY=:0'
+echo 'tigervncserver -noxstartup -SecurityTypes None -geometry 1280x720 :0' >> step2.sh
+echo 'export DISPLAY=:0' >> step2.sh
 echo 'export HOME="/home/mc/"' >> step2.sh
 echo './MultiMC' >> step2.sh
 sudo -u minecraft bash ./step2.sh
