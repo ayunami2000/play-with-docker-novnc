@@ -5,7 +5,7 @@ apt install -y openjdk-8-jre
 git clone https://github.com/iAmInActions/noVNC
 ./noVNC/utils/launch.sh --listen 80 &
 sleep 3
-apt install -y tigervnc-standalone-server icewm qtbase5-dev
+apt install -y tigervnc-standalone-server twm qtbase5-dev
 useradd notroot
 echo 'notroot  ALL=(ALL:ALL) ALL' >> /etc/sudoers
 sleep 4
@@ -21,8 +21,8 @@ echo '#!/bin/bash' >> step2.sh
 echo 'export HOME="/home/notroot/"' >> step2.sh
 echo 'tigervncserver -noxstartup -SecurityTypes None -geometry 1280x720 :0' >> step2.sh
 echo 'export DISPLAY=:0' >> step2.sh
-echo 'icewm &' >> step2.sh
+echo 'twm &' >> step2.sh
+echo 'xterm -e ./MultiMC' >> step2.sh
 chmod +x ./step2.sh
 sudo -u notroot ./step2.sh &
-sudo -u notroot ./MultiMC &
 sudo -u notroot bash --login
