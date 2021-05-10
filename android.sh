@@ -16,4 +16,5 @@ echo "wget -O app.apk `curl -s 'http://ws75.aptoide.com/api/7/apps/search/query=
 #todo: detect when lockscreen/homescreen is showing and then run install
 echo "adb wait-for-device push app.apk /sdcard/Download">>bruh.sh
 echo "adb wait-for-device install -s app.apk">>bruh.sh
+echo "/bin/bash">>bruh.sh
 docker run -it -v $(pwd):/bruh -p 5900:5900 --name bruh softsam/android-23:latest /bin/bash /bruh/bruh.sh
