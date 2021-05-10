@@ -13,4 +13,4 @@ export DISPLAY=:0
 x11vnc -noshm -geometry 900x720 -shared -forever &
 wget -O discord.tar.gz "https://discord.com/api/download?platform=linux&format=tar.gz"
 tar -xvf discord.tar.gz
-./Discord/Discord &
+./Discord/Discord --no-sandbox &
