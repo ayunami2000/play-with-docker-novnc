@@ -3,7 +3,7 @@ apt update
 apt install -y xvfb x11vnc build-essential libx11-dev libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev libgl1-mesa-dev libgl1-mesa-dri
 apt install -y python-minimal
 apt install -y python2
-apt install -y openjdk-8-jre qt5-default tigervnc
+apt install -y openjdk-8-jre qt5-default tigervnc-standalone-server
 git clone https://github.com/ayunami2000/noVNC
 ./noVNC/utils/launch.sh --listen 80 &
 useradd minecraft
@@ -13,7 +13,7 @@ wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1EkW9
 tar -xf ./mmc.tar.gz
 cd MultiMC/
 chown -R minecraft /home/mc/
-echo '!/bin/bash' >> step2.sh
+echo '#!/bin/bash' >> step2.sh
 echo 'tigervncserver -noxstartup -SecurityTypes None -geometry 1280x720 :0'
 echo 'export DISPLAY=:0'
 echo 'export HOME="/home/mc/"' >> step2.sh
