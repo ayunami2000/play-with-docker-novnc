@@ -1,21 +1,27 @@
 #!/bin/bash
 apt update
 apt install -y xvfb x11vnc build-essential libx11-dev libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev libgl1-mesa-dev libgl1-mesa-dri
-apt install -y python2
-apt install -y openjdk-8-jre qt5-default tigervnc-standalone-server twm
-git clone https://github.com/ayunami2000/noVNC
+apt install -y openjdk-8-jre
+git clone https://github.com/iAmInActions/noVNC
 ./noVNC/utils/launch.sh --listen 80 &
-useradd minecraft
-mkdir /home/mc/
-cd /home/mc/
+sleep 3
+apt install -y tigervnc-standalone-server icewm
+useradd notroot
+echo 'notroot  ALL=(ALL:ALL) ALL' >> /etc/sudoers
+sleep 4
+clear
+mkdir /home/notroot/
+chown notroot /home/notroot/
+cd /home/notroot/
 wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1EkW9E4o7BI3YRhFpGV0NQ8KAKqICM2Jn' -O mmc.tar.gz
 tar -xf ./mmc.tar.gz
 cd MultiMC/
-chown -R minecraft /home/mc/
+chown -R notroot /home/notroot/
 echo '#!/bin/bash' >> step2.sh
+echo 'export HOME="/home/notroot/"' >> step2.sh
 echo 'tigervncserver -noxstartup -SecurityTypes None -geometry 1280x720 :0' >> step2.sh
 echo 'export DISPLAY=:0' >> step2.sh
-echo 'twm &' >> step2.sh
-echo 'export HOME="/home/mc/"' >> step2.sh
-echo './MultiMC' >> step2.sh
-sudo -u minecraft bash ./step2.sh
+echo 'icewm &' >> step2.sh
+chmod +x ./step2.sh
+sudo -u notroot ./step2.sh &
+sudo -u ./MultiMC
