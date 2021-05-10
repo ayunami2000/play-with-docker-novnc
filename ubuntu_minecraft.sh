@@ -7,9 +7,9 @@ apt install -y python-minimal
 apt install -y python2
 apt install -y openjdk-8-jre
 git clone https://github.com/ayunami2000/noVNC
-git clone https://github.com/mindstorm38/portablemc
 ./noVNC/utils/launch.sh --listen 80 &
 Xvfb -screen 0 900x720x24+32 +extension GLX &
 export DISPLAY=:0
 x11vnc -noshm -geometry 900x720 -shared -forever &
-yes y | python3.7 ./portablemc/portablemc.py start -u katacoda
+wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1EkW9E4o7BI3YRhFpGV0NQ8KAKqICM2Jn' -O mmc.tar.gz
+tar -xf ./mmc.tar.gz
