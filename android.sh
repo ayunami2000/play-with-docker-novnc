@@ -1,8 +1,6 @@
-#!/bin/bash
 git clone https://github.com/ayunami2000/noVNC
 ./noVNC/utils/launch.sh --listen 80 &
-#docker run -it -p 5900:5900 --name bruh softsam/android-19:latest /bin/bash
-docker run -it -p 5900:5900 --name bruh softsam/android-23:latest /bin/bash
+{
 apt update
 apt install -y x11vnc xvfb fluxbox curl jq
 export DISPLAY=:0
@@ -18,3 +16,4 @@ wget -O app.apk `curl -s 'http://ws75.aptoide.com/api/7/apps/search/query=com.in
 #todo: detect when lockscreen/homescreen is showing and then run install
 adb wait-for-device push app.apk /sdcard/Download
 adb wait-for-device install -s app.apk
+} | docker run -it -p 5900:5900 --name bruh softsam/android-23:latest /bin/bash
