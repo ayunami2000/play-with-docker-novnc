@@ -1,6 +1,6 @@
 #!/bin/bash
 apt update
-apt install xvfb fluxbox xterm
+apt install -y xvfb fluxbox xterm
 wget https://github.com/ayunami2000/play-with-docker-novnc/raw/main/jsmpeg-vnc-linux_FIX_FOR_FAKEPORT.zip
 unzip jsmpeg-vnc-linux.zip
 Xvfb :0 -screen 0 1280x1024x24
