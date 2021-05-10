@@ -1,6 +1,8 @@
 #!/bin/bash
 apt update
-apt install -y qemu python-minimal
+apt install -y qemu
+apt install -y python-minimal
+apt install -y python2
 wget -O iso.iso http://boot.ipxe.org/ipxe.iso
 git clone https://github.com/ayunami2000/noVNC
 ./noVNC/utils/launch.sh --listen 80 &
