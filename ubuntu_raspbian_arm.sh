@@ -6,5 +6,5 @@ git clone https://github.com/ayunami2000/noVNC
 git clone https://github.com/iAmInActions/raspbian-emulation-vnc-stuff
 cd raspbian-emulation-vnc-stuff
 chmod +x ./runme.sh
-./runme.sh
+bash ./runme.sh
 bash --login
