@@ -12,6 +12,6 @@ git clone https://github.com/ayunami2000/noVNC
 ./noVNC/utils/launch.sh --listen 80 &
 qemu-system-x86_64 -vnc :0 -hda ./mediafire-dl/hda.img \
 --enable-kvm -m 2G -device VGA,vgamem_mb=256 \
--net nic,model=virtio -net user \
+-net nic,model=e1000 -net user \
 -rtc base=localtime,clock=host -smp cores=4,threads=4 \
 -usbdevice tablet
