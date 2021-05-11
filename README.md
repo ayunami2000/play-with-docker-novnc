@@ -6,4 +6,4 @@ ubuntu ones are for katacoda ubuntu, alpine ones are for play with docker
 
 NOTICE: ubuntu ones that don't use qemu are NOT optimized
 
-IMPORTANT: The minecraft script for ubuntu has to be run in ubuntu version 20.04 or it will not work. 
+IMPORTANT: The minecraft and qemu scripts for ubuntu have to be run in ubuntu version 20.04 or they will not work. 
