@@ -2,6 +2,8 @@
 apt update
 apt install -y qemu-system-arm qemu-utils
 apt install -y python2
+git clone https://github.com/ayunami2000/noVNC
+./noVNC/utils/launch.sh --listen 80 &
 apt install git dialog
 git clone https://github.com/iAmInActions/raspbian-emulation-vnc-stuff
 cd raspbian-emulation-vnc-stuff
