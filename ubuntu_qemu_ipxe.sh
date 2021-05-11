@@ -1,6 +1,6 @@
 #!/bin/bash
 apt update
-apt install -y qemu
+apt install -y qemu-system-x86
 apt install -y python-minimal
 apt install -y python2
 wget -O iso.iso http://boot.ipxe.org/ipxe.iso
