@@ -1,6 +1,6 @@
 #!/bin/bash
 apt update
-apt install -y qemu p7zip-full
+apt install -y qemu-system-x86 p7zip-full
 apt install -y python-minimal
 apt install -y python2
 git clone https://github.com/Juvenal-Yescas/mediafire-dl
