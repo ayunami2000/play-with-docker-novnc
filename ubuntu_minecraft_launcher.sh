@@ -5,7 +5,7 @@ apt install -y openjdk-8-jre
 git clone https://github.com/iAmInActions/noVNC
 ./noVNC/utils/launch.sh --listen 80 &
 sleep 3
-apt install -y tigervnc-standalone-server twm qtbase5-dev
+apt install -y tigervnc-standalone-server twm qtbase5-dev x11-utils xdotool
 useradd notroot
 echo 'notroot  ALL=(ALL:ALL) ALL' >> /etc/sudoers
 sleep 4
@@ -22,7 +22,14 @@ echo 'export HOME="/home/notroot/"' >> step2.sh
 echo 'tigervncserver -noxstartup -SecurityTypes None -geometry 1280x720 :0' >> step2.sh
 echo 'export DISPLAY=:0' >> step2.sh
 echo 'twm &' >> step2.sh
-echo 'xterm -e ./MultiMC' >> step2.sh
+echo 'xterm -e ./MultiMC &' >> step2.sh
+echo 'xmessage -buttons "" "Version: 1.12.2
+User: Player
+IP: eternalmc.xyz
+Password: unsafe" &' >> step2.sh
+echo 'sleep 3' >> step2.sh
+echo 'xdotool windowmove $(xdotool search --onlyvisible --name xmessage) 0 650' >> step2.sh
+
 chmod +x ./step2.sh
 sudo -u notroot ./step2.sh &
 sudo -u notroot bash --login
