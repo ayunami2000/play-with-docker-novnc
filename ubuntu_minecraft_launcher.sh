@@ -5,7 +5,7 @@ apt install -y openjdk-8-jre
 git clone https://github.com/iAmInActions/noVNC
 ./noVNC/utils/launch.sh --listen 80 &
 sleep 3
-apt install -y tigervnc-standalone-server twm qtbase5-dev
+apt install -y tigervnc-standalone-server twm qtbase5-dev x11-utils xdotool
 useradd notroot
 echo 'notroot  ALL=(ALL:ALL) ALL' >> /etc/sudoers
 sleep 4
