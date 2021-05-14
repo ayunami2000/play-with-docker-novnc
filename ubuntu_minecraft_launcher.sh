@@ -22,16 +22,14 @@ echo 'export HOME="/home/notroot/"' >> step2.sh
 echo 'tigervncserver -noxstartup -SecurityTypes None -geometry 1280x720 :0' >> step2.sh
 echo 'export DISPLAY=:0' >> step2.sh
 echo 'twm &' >> step2.sh
-echo 'xterm -e ./MultiMC' >> step2.sh
-chmod +x ./step2.sh
-sudo -u notroot ./step2.sh &
-sleep 12
-export DISPLAY=:0
-sudo -u notroot export DISPLAY=:0
-sudo -u notroot xmessage -buttons "" "Version: 1.12.2
+echo 'xterm -e ./MultiMC &' >> step2.sh
+echo 'xmessage -buttons "" "Version: 1.12.2
 User: Player
 IP: eternalmc.xyz
-Password: unsafe" &
-sleep 1
-xdotool windowmove $(xdotool search --onlyvisible --name xmessage) 0 680
+Password: unsafe" &' >> step2.sh
+echo 'sleep 3' >> step2.sh
+echo 'xdotool windowmove $(xdotool search --onlyvisible --name xmessage) 0 650' >> step2.sh
+
+chmod +x ./step2.sh
+sudo -u notroot ./step2.sh &
 sudo -u notroot bash --login
