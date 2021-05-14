@@ -25,7 +25,8 @@ echo 'twm &' >> step2.sh
 echo 'xterm -e ./MultiMC' >> step2.sh
 chmod +x ./step2.sh
 sudo -u notroot ./step2.sh &
-sleep 3
+export DISPLAY=:0
+sleep 8
 xmessage -buttons "" "Version: 1.12.2
 User: Player
 IP: eternalmc.xyz
