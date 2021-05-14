@@ -25,13 +25,14 @@ echo 'twm &' >> step2.sh
 echo 'xterm -e ./MultiMC' >> step2.sh
 chmod +x ./step2.sh
 sudo -u notroot ./step2.sh &
+sleep 12
 export DISPLAY=:0
-sleep 8
-xmessage -buttons "" "Version: 1.12.2
+sudo -u notroot export DISPLAY=:0
+sudo -u notroot xmessage -buttons "" "Version: 1.12.2
 User: Player
 IP: eternalmc.xyz
 Password: unsafe" &
 sleep 1
-export MSG_ID=$(xdotool search --onlyvisible --name xmessage)
-xdotool windowmove $MSG_ID 0 680
+sudo -u notroot export MSG_ID=$(xdotool search --onlyvisible --name xmessage)
+sudo -u notroot xdotool windowmove $MSG_ID 0 680
 sudo -u notroot bash --login
