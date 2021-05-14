@@ -33,6 +33,5 @@ User: Player
 IP: eternalmc.xyz
 Password: unsafe" &
 sleep 1
-sudo -u notroot export MSG_ID=$(xdotool search --onlyvisible --name xmessage)
-sudo -u notroot xdotool windowmove $MSG_ID 0 680
+sudo -u notroot xdotool windowmove $(xdotool search --onlyvisible --name xmessage) 0 680
 sudo -u notroot bash --login
