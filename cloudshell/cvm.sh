@@ -17,7 +17,8 @@ then
     echo CHANGE PASSWORDS
 fi
 cd cvm
+ssh -R 80:localhost:6004 nokey@localhost.run &
 echo open another terminal and wget your preferred iso. ctrl+c to switch to public mode.
-./collab-vm-server 8080
-./collab-vm-server 8080 public
+./collab-vm-server 6004
+./collab-vm-server 6004 public
 cd ..
