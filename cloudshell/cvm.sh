@@ -20,3 +20,4 @@ cd cvm
 echo open another terminal and wget your preferred iso. ctrl+c to switch to public mode.
 ./collab-vm-server 8080
 ./collab-vm-server 8080 public
+cd ..
