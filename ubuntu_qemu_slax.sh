@@ -1,6 +1,6 @@
 #!/bin/bash
 apt update
-apt install -y qemu
+apt install -y qemu-system-x86
 apt install -y python-minimal
 apt install -y python2
 wget -O iso.iso http://ftp.sh.cvut.cz/slax/Slax-9.x/slax-64bit-9.11.0.iso

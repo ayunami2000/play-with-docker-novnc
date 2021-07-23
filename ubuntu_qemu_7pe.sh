@@ -1,6 +1,6 @@
 #!/bin/bash
 apt update
-apt install -y qemu
+apt install -y qemu-system-x86 qemu-utils
 apt install -y python-minimal
 apt install -y python2
 qemu-img create -f raw hda.img 5G
