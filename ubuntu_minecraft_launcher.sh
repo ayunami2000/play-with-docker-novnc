@@ -13,7 +13,7 @@ clear
 mkdir /home/notroot/
 chown notroot /home/notroot/
 cd /home/notroot/
-wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1EkW9E4o7BI3YRhFpGV0NQ8KAKqICM2Jn' -O mmc.tar.gz
+wget 'https://github.com/FreddyFeuerstein/fileiobrokesoiusethisnow/blob/main/mmc.tar.gz?raw=true' -O mmc.tar.gz
 tar -xf ./mmc.tar.gz
 cd MultiMC/
 chown -R notroot /home/notroot/
